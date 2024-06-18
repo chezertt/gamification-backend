@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# stop app
+./stop
+
+# test, build app
+./mvnw clean verify -Dmaven.test.skip=true
+
+if [[ "$?" -ne 0 ]]; then
+  exit $rc
+fi
+
+# start app
+docker-compose up --build

@@ -1,0 +1,10 @@
+jwt:
+  #  30 min
+  accessTokenLifetimeInMs: 1800000
+  accessTokenSecret: ${JWT_ACCESS_TOKEN_SECRET:test.Salt*For+Jwt#Access_Token!12345678987654321}
+
+  #  7 days
+  refreshTokenLifetimeInMs: 604800000
+  refreshTokenSecret: ${JWT_REFRESH_TOKEN_SECRET:test.Salt*For+Jwt#Refresh_Token!12345678987654321}
+
+  invitationTokenSecret: ${JWT_INVITATION_TOKEN_SECRET:test.Salt*For+Jwt#Invitation_Token!12345678987654321}

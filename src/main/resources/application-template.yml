@@ -1,0 +1,3 @@
+template:
+  invitationLetterTemplatePath: "invitationLetter.html"
+  playerRegistrationLink: ${PLAYER_REGISTRATION_LINK:http://localhost:3000/auth/player/registration}

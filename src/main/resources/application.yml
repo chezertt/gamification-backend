@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    include: jwt, template
+  application:
+    name: gamification-backend
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_CONTAINER_NAME:localhost}:5432/${POSTGRES_DB:gamification}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+  docker:
+    compose:
+      skip:
+        in-tests: true
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:465}
+    protocol: ${MAIL_PROTOCOL:smtp}
+    username: ${MAIL_USERNAME:mock@example.com}
+    password: ${MAIL_PASSWORD:mockPassword}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: true
+
+server:
+  servlet:
+    context-path: /api
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+
+springdoc:
+  api-docs:
+    path: /docs

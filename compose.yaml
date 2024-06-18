@@ -1,0 +1,31 @@
+services:
+  app:
+    container_name: app
+    depends_on:
+      - db
+    build:
+      context: .
+    environment:
+      - POSTGRES_DB=gamification
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_CONTAINER_NAME=db
+    env_file:
+      - .env
+    ports:
+      - '8081:8080'
+  db:
+    container_name: db
+    image: 'postgres:latest'
+    environment:
+      - POSTGRES_DB=gamification
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    env_file:
+      - .env
+    ports:
+      - '5433:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
