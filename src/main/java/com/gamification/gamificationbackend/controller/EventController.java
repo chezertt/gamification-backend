@@ -3,6 +3,7 @@ package com.gamification.gamificationbackend.controller;
 import com.gamification.gamificationbackend.dto.request.EventRequestDto;
 import com.gamification.gamificationbackend.dto.response.EventResponseDto;
 import com.gamification.gamificationbackend.service.EventService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,7 @@ public class EventController {
 
     @PreAuthorize("hasRole('COMPANY')")
     @PostMapping
-    public ResponseEntity<Void> createEvent(@RequestBody EventRequestDto eventRequestDto) {
+    public ResponseEntity<Void> createEvent(@Valid @RequestBody EventRequestDto eventRequestDto) {
         eventService.createEvent(eventRequestDto);
         return new ResponseEntity<>(HttpStatus.OK);
     }

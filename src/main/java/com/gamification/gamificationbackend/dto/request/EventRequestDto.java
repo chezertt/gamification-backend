@@ -1,5 +1,6 @@
 package com.gamification.gamificationbackend.dto.request;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class EventRequestDto {
 
-    private String name;
+    private @NotEmpty String name;
 
     private Long typeId;
 

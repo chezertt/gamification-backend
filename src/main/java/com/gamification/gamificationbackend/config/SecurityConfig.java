@@ -33,7 +33,7 @@ public class SecurityConfig {
 
     private final List<String> ALLOWED_ORIGINS = List.of(
             "http://localhost:3000",
-            "https://localhost:3000"
+            "http://localhost:3001"
     );
 
     @Bean

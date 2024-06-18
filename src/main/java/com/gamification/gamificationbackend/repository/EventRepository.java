@@ -8,6 +8,7 @@ import java.util.List;
 public interface EventRepository extends JpaRepository<Event, Long> {
 
     List<Event> findAllByCompanyIdOrderByCreatedAtDesc(Long companyId);
+
     List<Event> findAllByPlayersWhoCompletedEvent_IdOrderByCreatedAtDesc(Long playerId);
 
     boolean existsByNameIgnoreCaseAndCompanyId(String eventName, Long companyId);
